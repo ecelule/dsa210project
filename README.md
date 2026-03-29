@@ -1,20 +1,22 @@
 # DSA210 Term Project
 
 ## Project Title
-Analysis of Physical Activity and Heart Rate Patterns Using Fitness Tracker Data
+Analysis of Running Activity and Heart Rate Patterns
 
 ## Project Description
-This project aims to analyze patterns between physical activity metrics and heart rate using data collected from fitness tracking devices. Fitness trackers record a variety of activity-related variables such as steps, distance, calories burned, and heart rate. By analyzing these variables, the project aims to better understand how physical activity influences heart rate and overall activity patterns.
+This project aims to analyze the relationship between running activity and heart rate using fitness tracker data. The dataset includes pre-processed features derived from running sessions, such as heart rate statistics, speed distributions, and time spent in different activity states. The goal is to explore how running intensity and patterns influence heart rate and performance.
+
+
 
 ## Data Source
-The dataset will be obtained from publicly available fitness tracker datasets (e.g., Fitbit activity datasets) available on platforms such as Kaggle.
+The dataset is obtained from a publicly available fitness tracking dataset on Kaggle. It contains processed running activity data with detailed features such as heart rate distribution, speed proportions, and time-based activity metrics.
 
 ## Potential Variables
-The dataset may include the following variables:
+The dataset includes the following types of variables:
 
-- steps
-- distance
-- heart_rate
-- calories
-- active_minutes
-- sleep
+- heart_rate_median, heart_rate_10, heart_rate_90 (heart rate statistics)
+- speed_proportion ranges (time spent at different speed intervals)
+- total_time_spent_running
+- proportion_time_spent_running
+- proportion_rest_time
+- location-based features (latitude, longitude)
