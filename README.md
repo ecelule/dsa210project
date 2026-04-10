@@ -3,5 +3,5 @@
 ## Project Title
 How do child and youth mortality rates vary across UNICEF regions, over time, and by sex?
 
-mortality = sadece kader değil  
+mortality = not just coincidence or fate
 mortality = koşullar + sistem + erişim
