@@ -1,11 +1,12 @@
 
-###Youth Mortality Analysis & Prediction
+###Youth Mortality Analysis & Prediction###
 
 *What is this project about?*
 
 In this project, I tried to understand a simple but important question:
 
 🪻 Why do some regions have higher youth mortality (ages 5–24) than others?
+
 🪻 And can we predict it using data?
 
 To answer this, I combined:
@@ -121,16 +122,6 @@ Findings:
 
 ⸻
 
-🤯*What could be improved?*
-
-If I had more time, I would:
-
-* Use country-level data
-* Add more variables (inequality, access to care, etc.)
-* Try advanced models (Random Forest, XGBoost)
-* Tune hyperparameters
-
-⸻
 
 🛠️ Tools Used
 
@@ -147,6 +138,7 @@ If I had more time, I would:
 This project shows that:
 
 🤝🏻 Data can explain why things happen
+
 🤝🏻 Machine learning can help predict what will happen
 
 And combining both gives a much stronger analysis.
