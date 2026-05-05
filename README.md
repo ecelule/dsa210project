@@ -45,7 +45,7 @@ These variables are also highly correlated with each other
 
 ⸻
 
-🧸**Step 2 — Understanding + Hypothesis Testing**
+**Step 2 — Understanding + Hypothesis Testing**
 
 Before jumping into ML, I used "Hypothesis Testing" to understand the relationships more clearly.
 
@@ -64,7 +64,7 @@ they are so correlated that it’s hard to isolate their individual effects.
 
 ⸻
 
-🧸**Step 3 — Machine Learning (Prediction)**
+**Step 3 — Machine Learning (Prediction)**
 
 Then I switched to prediction:
 
@@ -86,7 +86,7 @@ Because KNN can capture non-linear patterns, unlike linear regression.
 
 ⸻
 
-🧸**Step 4 — Time-Based Analysis**
+**Step 4 — Time-Based Analysis**
 
 I also tested whether models can predict future mortality trends.
 
