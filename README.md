@@ -28,7 +28,7 @@ Then I cleaned and combined them into one dataset at region-year level.
 
 ⸻
 
-🧸**Step 1 — Exploring the Data (EDA)**
+**Step 1 — Exploring the Data (EDA)**
 
 First, I looked at basic relationships.
 
