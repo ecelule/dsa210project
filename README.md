@@ -1,13 +1,13 @@
 
-###Youth Mortality Analysis & Prediction###
+# Youth Mortality Analysis and Prediction
 
 *What is this project about?*
 
 In this project, I tried to understand a simple but important question:
 
-🪻 Why do some regions have higher youth mortality (ages 5–24) than others?
+Why do some regions have higher youth mortality (ages 5–24) than others?
 
-🪻 And can we predict it using data?
+And can we predict it using data?
 
 To answer this, I combined:
 
@@ -37,7 +37,7 @@ First, I looked at basic relationships.
 * HDI, health spending, and education spending are strongly positively correlated
 * All of them are negatively correlated with mortality
 
-🪻In simple terms:
+In simple terms:
 More development → lower youth mortality
 
 But there is a catch (important!!!):
@@ -144,3 +144,12 @@ This project shows that:
 And combining both gives a much stronger analysis.
 
 
+## How to Run
+
+1. Clone the repository
+2. Install dependencies:
+
+pip install -r requirements.txt
+
+3. Run the notebook:
+youth_mortality_analysis_ML.ipynb
