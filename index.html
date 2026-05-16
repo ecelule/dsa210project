@@ -1,22 +1,326 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Youth Mortality Analysis</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Youth Mortality Analysis & Prediction</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    color:#222;
+}
+
+header{
+    background:linear-gradient(135deg,#1f4e79,#3b82f6);
+    color:white;
+    padding:60px 20px;
+    text-align:center;
+}
+
+header h1{
+    margin:0;
+    font-size:48px;
+}
+
+header p{
+    margin-top:15px;
+    font-size:20px;
+    opacity:0.9;
+}
+
+nav{
+    background:white;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    padding:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+nav a{
+    text-decoration:none;
+    color:#1f4e79;
+    font-weight:bold;
+    padding:10px 16px;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:#dbeafe;
+}
+
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:30px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+h2{
+    color:#1f4e79;
+    margin-top:0;
+}
+
+img{
+    width:100%;
+    border-radius:12px;
+    margin-top:20px;
+}
+
+.button{
+    display:inline-block;
+    margin-top:20px;
+    background:#2563eb;
+    color:white;
+    padding:12px 20px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.button:hover{
+    background:#1d4ed8;
+}
+
+footer{
+    background:#1f2937;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:50px;
+}
+
+.highlight{
+    color:#2563eb;
+    font-weight:bold;
+}
+
+</style>
 </head>
 
 <body>
 
+<header>
     <h1>Youth Mortality Analysis & Prediction</h1>
+    <p>Exploring how development indicators affect youth mortality using statistics and machine learning</p>
+</header>
 
-    <p>
-        This project investigates how development indicators affect youth mortality.
-    </p>
+<nav>
+    <a href="#about">About</a>
+    <a href="#eda">EDA</a>
+    <a href="#hypothesis">Hypothesis Testing</a>
+    <a href="#ml">Machine Learning</a>
+    <a href="#time">Time Analysis</a>
+    <a href="#limitations">Limitations</a>
+    <a href="#code">Code</a>
+</nav>
 
-    <p>
-        Machine learning and statistical analysis were used to explore patterns and predict mortality trends.
-    </p>
+<section id="about">
+
+<div class="card">
+<h2>About the Project</h2>
+
+<p>
+This project investigates why some regions experience higher youth mortality rates (ages 5–24) than others.
+</p>
+
+<p>
+To answer this question, I combined:
+</p>
+
+<ul>
+<li>Statistical analysis</li>
+<li>Hypothesis testing</li>
+<li>Machine learning models</li>
+<li>Time-based forecasting</li>
+</ul>
+
+<p>
+The dataset combines:
+<span class="highlight">UNICEF mortality data</span>,
+<span class="highlight">HDI indicators</span>,
+health spending,
+education spending,
+and regional information.
+</p>
+
+</div>
+
+</section>
+
+<section id="eda">
+
+<div class="card">
+
+<h2>Exploratory Data Analysis (EDA)</h2>
+
+<p>
+Initial analysis showed strong relationships between development indicators and mortality.
+</p>
+
+<ul>
+<li>HDI, health spending, and education spending are strongly positively correlated</li>
+<li>All development indicators are negatively correlated with mortality</li>
+<li>Higher development generally corresponds to lower youth mortality</li>
+</ul>
+
+<p>
+However, the variables are also highly correlated with each other, creating a multicollinearity issue.
+</p>
+
+<img src="final_model_dashboard.png" alt="EDA Dashboard">
+
+</div>
+
+</section>
+
+<section id="hypothesis">
+
+<div class="card">
+
+<h2>Hypothesis Testing & Statistical Interpretation</h2>
+
+<p>
+OLS regression was used to better understand the underlying relationships.
+</p>
+
+<ul>
+<li>R² ≈ 0.78 → strong explanatory power</li>
+<li>Health spending has a strong negative effect on mortality</li>
+<li>Education spending shows multicollinearity-related behavior</li>
+<li>HDI becomes statistically weaker after adding controls</li>
+<li>Regional effects remain significant</li>
+</ul>
+
+<p>
+This suggests that development indicators matter strongly, but their effects overlap substantially.
+</p>
+
+</div>
+
+</section>
+
+<section id="ml">
+
+<div class="card">
+
+<h2>Machine Learning Models</h2>
+
+<p>
+Several predictive models were tested:
+</p>
+
+<ul>
+<li>Linear Regression</li>
+<li>KNN Regression</li>
+<li>Baseline Mean Model</li>
+</ul>
+
+<p>
+The best performing model was:
+<span class="highlight">KNN Regression</span>
+</p>
+
+<ul>
+<li>Highest R²</li>
+<li>Lowest RMSE</li>
+<li>Better handling of non-linear patterns</li>
+</ul>
+
+<img src="timeseries_results.png" alt="Machine Learning Results">
+
+</div>
+
+</section>
+
+<section id="time">
+
+<div class="card">
+
+<h2>Time-Based Forecasting</h2>
+
+<p>
+The project also tested whether mortality trends could be predicted over time.
+</p>
+
+<ul>
+<li>Models were trained on earlier years</li>
+<li>Tested on more recent years</li>
+<li>General mortality trends were captured successfully</li>
+<li>Year-to-year fluctuations remained difficult</li>
+</ul>
+
+<p>
+Main insight:
+<span class="highlight">
+Predicting long-term levels is easier than predicting short-term changes.
+</span>
+</p>
+
+</div>
+
+</section>
+
+<section id="limitations">
+
+<div class="card">
+
+<h2>Limitations</h2>
+
+<ul>
+<li>Strong multicollinearity between predictors</li>
+<li>Regional averages hide country-level variation</li>
+<li>Limited time depth for forecasting</li>
+<li>Some mortality spikes are difficult to predict accurately</li>
+</ul>
+
+</div>
+
+</section>
+
+<section id="code">
+
+<div class="card">
+
+<h2>Project Repository & Notebook</h2>
+
+<p>
+You can access the complete notebook, code, and datasets below:
+</p>
+
+<a class="button" href="https://github.com/ecelule/dsa210project" target="_blank">
+View GitHub Repository
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+Created by Ece Lüle • DSA210 Project • 2026
+</p>
+
+</footer>
 
 </body>
-
 </html>
