@@ -7,7 +7,7 @@ View the deployed interactive project website here:
 
 https://ecelule.github.io/dsa210project/
 
-*What is this project about?*
+**What is this project about?**
 
 In this project, I tried to understand a simple but important question:
 
