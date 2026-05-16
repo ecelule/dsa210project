@@ -69,7 +69,12 @@ section{
     border-radius:18px;
     padding:30px;
     margin-bottom:30px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    box-shadow:0 8px 24px rgba(0,0,0,0.10);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
 }
 
 h2{
@@ -157,11 +162,41 @@ The analysis combines <span class="highlight">UNICEF youth mortality data</span>
 The EDA shows that development indicators are strongly related to youth mortality. In general, higher development is associated with lower mortality.
 </p>
 
+
+<p>
+The correlation matrix reveals strong relationships between development indicators and youth mortality.
+HDI, health spending, and education spending are all strongly positively correlated with each other, while showing strong negative correlations with youth mortality.
+</p>
 <img src="distribution_plot.png" alt="Distribution of Youth Mortality">
-<img src="correlation_matrix.png" alt="Correlation Matrix">
+
+<p>
+This suggests that regions with higher development and greater investments in health and education generally experience lower youth mortality rates.
+However, the very high correlations between predictors also indicate a potential <span class="highlight">multicollinearity problem</span>, meaning these variables may overlap in explaining mortality outcomes.
+</p>
 <img src="regional_boxplot.png" alt="Regional Boxplot">
+
+<p>
+The boxplot shows clear regional differences in youth mortality.
+Sub-Saharan Africa has the highest mortality levels and the largest variability,
+while Europe and Central Asia have lower and more stable mortality rates.
+This suggests that geographic and structural regional factors strongly influence mortality outcomes.
+</p>
 <img src="hdi_vs_mortality.png" alt="HDI vs Youth Mortality">
+<p>
+The scatterplot shows a strong negative relationship between HDI and youth mortality.
+Regions with higher HDI generally experience lower mortality rates.
+Sub-Saharan Africa stands out with both lower HDI and significantly higher mortality levels.
+This suggests that development level is strongly associated with health outcomes.
+</p>
+
+
 <img src="health_spending_vs_mortality.png" alt="Health Spending vs Youth Mortality">
+<p>
+The graph indicates that higher health spending is generally associated with lower youth mortality.
+However, mortality differences still exist between regions with similar spending levels,
+suggesting that structural and regional factors also play an important role.
+</p>
+
 
 <p>
 A key finding is that HDI, health spending, and education spending are highly correlated with each other. This creates a multicollinearity issue, meaning that it becomes difficult to isolate the independent effect of each variable.
@@ -174,7 +209,7 @@ A key finding is that HDI, health spending, and education spending are highly co
 <h2>Hypothesis Testing & Statistical Interpretation</h2>
 
 <p>
-OLS regression was used to understand the relationship between development indicators, region, and youth mortality.
+Regression was used to understand the relationship between development indicators, region, and youth mortality.
 </p>
 
 <ul>
@@ -209,10 +244,14 @@ Regression models were used to predict youth mortality from development indicato
 The best performing model was <span class="highlight">KNN Regression</span>, achieving the lowest RMSE and highest R².
 </p>
 
-<img src="regression_results.png" alt="Regression Results">
+<img src="final_model_dashboard.png" alt="Regression Results">
 
 <p>
-This suggests that the relationship between development indicators and mortality is partly non-linear, which KNN captures better than a simple linear model.
+This dashboard compares the performance of different machine learning models used to predict youth mortality.
+KNN Regression achieved the best overall performance with the lowest RMSE and the highest R² score,
+indicating that it captures non-linear relationships more effectively than Linear Regression.
+The residual plot also shows that prediction errors are generally centered around zero,
+although larger errors still appear for extreme mortality values.
 </p>
 </div>
 </section>
@@ -224,6 +263,9 @@ This suggests that the relationship between development indicators and mortality
 <p>
 A time-based evaluation was also conducted by training models on earlier years and testing them on more recent years.
 </p>
+<p>
+The dashboard below summarizes forecasting performance and compares prediction quality across models.
+</p>
 
 <img src="timeseries_results.png" alt="Time Series Results">
 
@@ -232,7 +274,9 @@ The model captures general mortality trends, but year-to-year fluctuations are h
 </p>
 
 <p>
-<span class="highlight">Main insight:</span> predicting mortality levels is easier than predicting short-term changes.
+<span class="highlight">Main Insight:</span>
+The models successfully capture long-term mortality patterns,
+but short-term fluctuations remain difficult to predict accurately.
 </p>
 </div>
 </section>
