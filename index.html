@@ -7,7 +7,6 @@
 <title>Youth Mortality Analysis & Prediction</title>
 
 <style>
-
 body{
     margin:0;
     font-family: Arial, sans-serif;
@@ -82,6 +81,7 @@ img{
     width:100%;
     border-radius:12px;
     margin-top:20px;
+    border:1px solid #e5e7eb;
 }
 
 .button{
@@ -93,11 +93,11 @@ img{
     border-radius:10px;
     text-decoration:none;
     font-weight:bold;
-    transition:0.3s;
 }
 
-.button:hover{
-    background:#1d4ed8;
+.highlight{
+    color:#2563eb;
+    font-weight:bold;
 }
 
 footer{
@@ -107,12 +107,6 @@ footer{
     padding:30px;
     margin-top:50px;
 }
-
-.highlight{
-    color:#2563eb;
-    font-weight:bold;
-}
-
 </style>
 </head>
 
@@ -134,98 +128,75 @@ footer{
 </nav>
 
 <section id="about">
-
 <div class="card">
 <h2>About the Project</h2>
 
 <p>
-This project investigates why some regions experience higher youth mortality rates (ages 5–24) than others.
+This project investigates why some regions experience higher youth mortality rates among ages 5–24 and whether these patterns can be predicted using data.
 </p>
 
 <p>
-To answer this question, I combined:
+The analysis combines <span class="highlight">UNICEF youth mortality data</span>, <span class="highlight">HDI indicators</span>, health spending, education spending, and regional classifications.
 </p>
 
 <ul>
-<li>Statistical analysis</li>
-<li>Hypothesis testing</li>
-<li>Machine learning models</li>
+<li>Exploratory data analysis</li>
+<li>Hypothesis testing and statistical interpretation</li>
+<li>Supervised machine learning</li>
+<li>Unsupervised clustering</li>
 <li>Time-based forecasting</li>
 </ul>
-
-<p>
-The dataset combines:
-<span class="highlight">UNICEF mortality data</span>,
-<span class="highlight">HDI indicators</span>,
-health spending,
-education spending,
-and regional information.
-</p>
-
 </div>
-
 </section>
 
 <section id="eda">
-
 <div class="card">
-
-<h2>Exploratory Data Analysis (EDA)</h2>
-
-<p>
-Initial analysis showed strong relationships between development indicators and mortality.
-</p>
-
-<ul>
-<li>HDI, health spending, and education spending are strongly positively correlated</li>
-<li>All development indicators are negatively correlated with mortality</li>
-<li>Higher development generally corresponds to lower youth mortality</li>
-</ul>
+<h2>Exploratory Data Analysis</h2>
 
 <p>
-However, the variables are also highly correlated with each other, creating a multicollinearity issue.
+The EDA shows that development indicators are strongly related to youth mortality. In general, higher development is associated with lower mortality.
 </p>
 
-<img src="final_model_dashboard.png" alt="EDA Dashboard">
+<img src="distribution_plot.png" alt="Distribution of Youth Mortality">
+<img src="correlation_matrix.png" alt="Correlation Matrix">
+<img src="regional_boxplot.png" alt="Regional Boxplot">
+<img src="hdi_vs_mortality.png" alt="HDI vs Youth Mortality">
+<img src="health_spending_vs_mortality.png" alt="Health Spending vs Youth Mortality">
 
+<p>
+A key finding is that HDI, health spending, and education spending are highly correlated with each other. This creates a multicollinearity issue, meaning that it becomes difficult to isolate the independent effect of each variable.
+</p>
 </div>
-
 </section>
 
 <section id="hypothesis">
-
 <div class="card">
-
 <h2>Hypothesis Testing & Statistical Interpretation</h2>
 
 <p>
-OLS regression was used to better understand the underlying relationships.
+OLS regression was used to understand the relationship between development indicators, region, and youth mortality.
 </p>
 
 <ul>
-<li>R² ≈ 0.78 → strong explanatory power</li>
-<li>Health spending has a strong negative effect on mortality</li>
-<li>Education spending shows multicollinearity-related behavior</li>
-<li>HDI becomes statistically weaker after adding controls</li>
-<li>Regional effects remain significant</li>
+<li>R² ≈ 0.78, indicating strong explanatory power</li>
+<li>Health spending has a strong negative relationship with mortality</li>
+<li>Education spending has a positive coefficient, likely due to multicollinearity</li>
+<li>HDI becomes statistically weaker when other controls are included</li>
+<li>Regional differences remain important even after controlling for development indicators</li>
 </ul>
 
 <p>
-This suggests that development indicators matter strongly, but their effects overlap substantially.
+This suggests that youth mortality is not explained by development alone. Regional and structural differences also matter.
 </p>
-
 </div>
-
 </section>
 
 <section id="ml">
-
 <div class="card">
-
 <h2>Machine Learning Models</h2>
 
 <p>
-Several predictive models were tested:
+Regression models were used to predict youth mortality from development indicators.
 </p>
 
 <ul>
@@ -235,91 +206,66 @@ Several predictive models were tested:
 </ul>
 
 <p>
-The best performing model was:
-<span class="highlight">KNN Regression</span>
+The best performing model was <span class="highlight">KNN Regression</span>, achieving the lowest RMSE and highest R².
 </p>
 
-<ul>
-<li>Highest R²</li>
-<li>Lowest RMSE</li>
-<li>Better handling of non-linear patterns</li>
-</ul>
+<img src="regression_results.png" alt="Regression Results">
 
-<img src="timeseries_results.png" alt="Machine Learning Results">
-
+<p>
+This suggests that the relationship between development indicators and mortality is partly non-linear, which KNN captures better than a simple linear model.
+</p>
 </div>
-
 </section>
 
 <section id="time">
-
 <div class="card">
-
-<h2>Time-Based Forecasting</h2>
-
-<p>
-The project also tested whether mortality trends could be predicted over time.
-</p>
-
-<ul>
-<li>Models were trained on earlier years</li>
-<li>Tested on more recent years</li>
-<li>General mortality trends were captured successfully</li>
-<li>Year-to-year fluctuations remained difficult</li>
-</ul>
+<h2>Time-Based Analysis</h2>
 
 <p>
-Main insight:
-<span class="highlight">
-Predicting long-term levels is easier than predicting short-term changes.
-</span>
+A time-based evaluation was also conducted by training models on earlier years and testing them on more recent years.
 </p>
 
+<img src="timeseries_results.png" alt="Time Series Results">
+
+<p>
+The model captures general mortality trends, but year-to-year fluctuations are harder to predict.
+</p>
+
+<p>
+<span class="highlight">Main insight:</span> predicting mortality levels is easier than predicting short-term changes.
+</p>
 </div>
-
 </section>
 
 <section id="limitations">
-
 <div class="card">
-
 <h2>Limitations</h2>
 
 <ul>
-<li>Strong multicollinearity between predictors</li>
-<li>Regional averages hide country-level variation</li>
+<li>High multicollinearity between HDI, health spending, and education spending</li>
+<li>Regional averages may hide country-level differences</li>
 <li>Limited time depth for forecasting</li>
 <li>Some mortality spikes are difficult to predict accurately</li>
 </ul>
-
 </div>
-
 </section>
 
 <section id="code">
-
 <div class="card">
-
-<h2>Project Repository & Notebook</h2>
+<h2>Project Repository & Code</h2>
 
 <p>
-You can access the complete notebook, code, and datasets below:
+The full notebooks, datasets, code, and project documentation are available in the GitHub repository.
 </p>
 
 <a class="button" href="https://github.com/ecelule/dsa210project" target="_blank">
 View GitHub Repository
 </a>
-
 </div>
-
 </section>
 
 <footer>
-
-<p>
-Created by Ece Lüle • DSA210 Project • 2026
-</p>
-
+<p>Created by Ece Lüle • DSA210 Project • 2026</p>
 </footer>
 
 </body>
